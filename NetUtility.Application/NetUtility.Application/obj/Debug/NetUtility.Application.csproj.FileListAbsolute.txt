@@ -1,0 +1,12 @@
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Application\obj\Debug\NetUtility.Application.csprojResolveAssemblyReference.cache
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Application\obj\Debug\NetUtility.Application.csproj.GenerateResource.Cache
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Application\bin\Debug\NetUtility.App.exe
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Application\bin\Debug\NetUtility.App.pdb
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Application\bin\Debug\NetUtility.dll
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Application\bin\Debug\NetUtility.pdb
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Application\obj\Debug\NetUtility.App.Frm_Wave.resources
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Application\obj\Debug\NetUtility.App.Properties.Resources.resources
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Application\obj\Debug\NetUtility.App.exe
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Application\obj\Debug\NetUtility.App.pdb
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Application\obj\Debug\NetUtility.App.Frm_Image.resources
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Application\obj\Debug\NetUtility.App.FRM_NoFromBody.resources
