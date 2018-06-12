@@ -49,6 +49,7 @@
     <Compile Include="Mailer.cs" />
     <Compile Include="DeviceUnility\NetDevice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegexValidate.cs" />
     <Compile Include="SecurityUnility\AESUnility.cs" />
     <Compile Include="SecurityUnility\DESUnility.cs" />
     <Compile Include="StringExt.cs" />
