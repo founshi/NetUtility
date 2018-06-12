@@ -34,10 +34,16 @@ namespace NetUtility.FileUnility
                 }
             }
             catch (System.Exception ex)
-            { }
-            return false;
+            {
+                throw ex;
+            }
+            
         }
         #endregion
+
+
+
+
 
 
     }

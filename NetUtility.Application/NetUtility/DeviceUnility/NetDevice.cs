@@ -1,0 +1,547 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management;
+using System.Text;
+
+namespace NetUtility.DeviceUnility
+{
+    public class NetDevice
+    {
+        /// <summary>
+        /// 获取本机IP地址
+        /// </summary>
+        /// <returns></returns>
+        public static string GetIPAddress()
+        {
+            string st = "";
+            ManagementClass mc = new ManagementClass("Win32_NetworkAdapterConfiguration");
+            ManagementObjectCollection moc = mc.GetInstances();
+            foreach (ManagementObject mo in moc)
+            {
+
+                if ((bool)mo["IPEnabled"] == true)
+                {
+                    System.Array ar;
+                    ar = (System.Array)(mo.Properties["IpAddress"].Value);
+                    st = ar.GetValue(0).ToString();
+                    break;
+                }
+            }
+            moc = null;
+            mc = null;
+            return st;
+        }
+        /// <summary>
+        /// 获取Mac地址
+        /// </summary>
+        /// <returns></returns>
+        public static string GetMacAddress()
+        {
+            string mac = "";
+            ManagementClass mc = new ManagementClass("Win32_NetworkAdapterConfiguration");
+            ManagementObjectCollection moc = mc.GetInstances();
+            foreach (ManagementObject mo in moc)
+            {
+                if ((bool)mo["IPEnabled"] == true)
+                {
+                    mac = mo["MacAddress"].ToString();
+                    break;
+                }
+            }
+            return mac;
+        }
+
+
+
+
+    }
+}
+//ArpAlwaysSourceRoute
+//ArpUseEtherSNAP
+//Caption
+//DatabasePath
+//DeadGWDetectEnabled
+//DefaultIPGateway
+//DefaultTOS
+//DefaultTTL
+//Description
+//DHCPEnabled
+//DHCPLeaseExpires
+//DHCPLeaseObtained
+//DHCPServer
+//DNSDomain
+//DNSDomainSuffixSearchOrder
+//DNSEnabledForWINSResolution
+//DNSHostName
+//DNSServerSearchOrder
+//DomainDNSRegistrationEnabled
+//ForwardBufferMemory
+//FullDNSRegistrationEnabled
+//GatewayCostMetric
+//IGMPLevel
+//Index
+//InterfaceIndex
+//IPAddress  Ip地址
+//IPConnectionMetric
+//IPEnabled
+//IPFilterSecurityEnabled
+//IPPortSecurityEnabled
+//IPSecPermitIPProtocols
+//IPSecPermitTCPPorts
+//IPSecPermitUDPPorts
+//IPSubnet
+//IPUseZeroBroadcast
+//IPXAddress
+//IPXEnabled
+//IPXFrameType
+//IPXMediaType
+//IPXNetworkNumber
+//IPXVirtualNetNumber
+//KeepAliveInterval
+//KeepAliveTime
+//MACAddress  MAC地址
+//MTU
+//NumForwardPackets
+//PMTUBHDetectEnabled
+//PMTUDiscoveryEnabled
+//ServiceName
+//SettingID
+//TcpipNetbiosOptions
+//TcpMaxConnectRetransmissions
+//TcpMaxDataRetransmissions
+//TcpNumConnections
+//TcpUseRFC1122UrgentPointer
+//TcpWindowSize
+//WINSEnableLMHostsLookup
+//WINSHostLookupFile
+//WINSPrimaryServer
+//WINSScopeID
+//WINSSecondaryServer
+//ArpAlwaysSourceRoute
+//ArpUseEtherSNAP
+//Caption
+//DatabasePath
+//DeadGWDetectEnabled
+//DefaultIPGateway
+//DefaultTOS
+//DefaultTTL
+//Description
+//DHCPEnabled
+//DHCPLeaseExpires
+//DHCPLeaseObtained
+//DHCPServer
+//DNSDomain
+//DNSDomainSuffixSearchOrder
+//DNSEnabledForWINSResolution
+//DNSHostName
+//DNSServerSearchOrder
+//DomainDNSRegistrationEnabled
+//ForwardBufferMemory
+//FullDNSRegistrationEnabled
+//GatewayCostMetric
+//IGMPLevel
+//Index
+//InterfaceIndex
+//IPAddress
+//IPConnectionMetric
+//IPEnabled
+//IPFilterSecurityEnabled
+//IPPortSecurityEnabled
+//IPSecPermitIPProtocols
+//IPSecPermitTCPPorts
+//IPSecPermitUDPPorts
+//IPSubnet
+//IPUseZeroBroadcast
+//IPXAddress
+//IPXEnabled
+//IPXFrameType
+//IPXMediaType
+//IPXNetworkNumber
+//IPXVirtualNetNumber
+//KeepAliveInterval
+//KeepAliveTime
+//MACAddress
+//MTU
+//NumForwardPackets
+//PMTUBHDetectEnabled
+//PMTUDiscoveryEnabled
+//ServiceName
+//SettingID
+//TcpipNetbiosOptions
+//TcpMaxConnectRetransmissions
+//TcpMaxDataRetransmissions
+//TcpNumConnections
+//TcpUseRFC1122UrgentPointer
+//TcpWindowSize
+//WINSEnableLMHostsLookup
+//WINSHostLookupFile
+//WINSPrimaryServer
+//WINSScopeID
+//WINSSecondaryServer
+//ArpAlwaysSourceRoute
+//ArpUseEtherSNAP
+//Caption
+//DatabasePath
+//DeadGWDetectEnabled
+//DefaultIPGateway
+//DefaultTOS
+//DefaultTTL
+//Description
+//DHCPEnabled
+//DHCPLeaseExpires
+//DHCPLeaseObtained
+//DHCPServer
+//DNSDomain
+//DNSDomainSuffixSearchOrder
+//DNSEnabledForWINSResolution
+//DNSHostName
+//DNSServerSearchOrder
+//DomainDNSRegistrationEnabled
+//ForwardBufferMemory
+//FullDNSRegistrationEnabled
+//GatewayCostMetric
+//IGMPLevel
+//Index
+//InterfaceIndex
+//IPAddress
+//IPConnectionMetric
+//IPEnabled
+//IPFilterSecurityEnabled
+//IPPortSecurityEnabled
+//IPSecPermitIPProtocols
+//IPSecPermitTCPPorts
+//IPSecPermitUDPPorts
+//IPSubnet
+//IPUseZeroBroadcast
+//IPXAddress
+//IPXEnabled
+//IPXFrameType
+//IPXMediaType
+//IPXNetworkNumber
+//IPXVirtualNetNumber
+//KeepAliveInterval
+//KeepAliveTime
+//MACAddress
+//MTU
+//NumForwardPackets
+//PMTUBHDetectEnabled
+//PMTUDiscoveryEnabled
+//ServiceName
+//SettingID
+//TcpipNetbiosOptions
+//TcpMaxConnectRetransmissions
+//TcpMaxDataRetransmissions
+//TcpNumConnections
+//TcpUseRFC1122UrgentPointer
+//TcpWindowSize
+//WINSEnableLMHostsLookup
+//WINSHostLookupFile
+//WINSPrimaryServer
+//WINSScopeID
+//WINSSecondaryServer
+//ArpAlwaysSourceRoute
+//ArpUseEtherSNAP
+//Caption
+//DatabasePath
+//DeadGWDetectEnabled
+//DefaultIPGateway
+//DefaultTOS
+//DefaultTTL
+//Description
+//DHCPEnabled
+//DHCPLeaseExpires
+//DHCPLeaseObtained
+//DHCPServer
+//DNSDomain
+//DNSDomainSuffixSearchOrder
+//DNSEnabledForWINSResolution
+//DNSHostName
+//DNSServerSearchOrder
+//DomainDNSRegistrationEnabled
+//ForwardBufferMemory
+//FullDNSRegistrationEnabled
+//GatewayCostMetric
+//IGMPLevel
+//Index
+//InterfaceIndex
+//IPAddress
+//IPConnectionMetric
+//IPEnabled
+//IPFilterSecurityEnabled
+//IPPortSecurityEnabled
+//IPSecPermitIPProtocols
+//IPSecPermitTCPPorts
+//IPSecPermitUDPPorts
+//IPSubnet
+//IPUseZeroBroadcast
+//IPXAddress
+//IPXEnabled
+//IPXFrameType
+//IPXMediaType
+//IPXNetworkNumber
+//IPXVirtualNetNumber
+//KeepAliveInterval
+//KeepAliveTime
+//MACAddress
+//MTU
+//NumForwardPackets
+//PMTUBHDetectEnabled
+//PMTUDiscoveryEnabled
+//ServiceName
+//SettingID
+//TcpipNetbiosOptions
+//TcpMaxConnectRetransmissions
+//TcpMaxDataRetransmissions
+//TcpNumConnections
+//TcpUseRFC1122UrgentPointer
+//TcpWindowSize
+//WINSEnableLMHostsLookup
+//WINSHostLookupFile
+//WINSPrimaryServer
+//WINSScopeID
+//WINSSecondaryServer
+//ArpAlwaysSourceRoute
+//ArpUseEtherSNAP
+//Caption
+//DatabasePath
+//DeadGWDetectEnabled
+//DefaultIPGateway
+//DefaultTOS
+//DefaultTTL
+//Description
+//DHCPEnabled
+//DHCPLeaseExpires
+//DHCPLeaseObtained
+//DHCPServer
+//DNSDomain
+//DNSDomainSuffixSearchOrder
+//DNSEnabledForWINSResolution
+//DNSHostName
+//DNSServerSearchOrder
+//DomainDNSRegistrationEnabled
+//ForwardBufferMemory
+//FullDNSRegistrationEnabled
+//GatewayCostMetric
+//IGMPLevel
+//Index
+//InterfaceIndex
+//IPAddress
+//IPConnectionMetric
+//IPEnabled
+//IPFilterSecurityEnabled
+//IPPortSecurityEnabled
+//IPSecPermitIPProtocols
+//IPSecPermitTCPPorts
+//IPSecPermitUDPPorts
+//IPSubnet
+//IPUseZeroBroadcast
+//IPXAddress
+//IPXEnabled
+//IPXFrameType
+//IPXMediaType
+//IPXNetworkNumber
+//IPXVirtualNetNumber
+//KeepAliveInterval
+//KeepAliveTime
+//MACAddress
+//MTU
+//NumForwardPackets
+//PMTUBHDetectEnabled
+//PMTUDiscoveryEnabled
+//ServiceName
+//SettingID
+//TcpipNetbiosOptions
+//TcpMaxConnectRetransmissions
+//TcpMaxDataRetransmissions
+//TcpNumConnections
+//TcpUseRFC1122UrgentPointer
+//TcpWindowSize
+//WINSEnableLMHostsLookup
+//WINSHostLookupFile
+//WINSPrimaryServer
+//WINSScopeID
+//WINSSecondaryServer
+//ArpAlwaysSourceRoute
+//ArpUseEtherSNAP
+//Caption
+//DatabasePath
+//DeadGWDetectEnabled
+//DefaultIPGateway
+//DefaultTOS
+//DefaultTTL
+//Description
+//DHCPEnabled
+//DHCPLeaseExpires
+//DHCPLeaseObtained
+//DHCPServer
+//DNSDomain
+//DNSDomainSuffixSearchOrder
+//DNSEnabledForWINSResolution
+//DNSHostName
+//DNSServerSearchOrder
+//DomainDNSRegistrationEnabled
+//ForwardBufferMemory
+//FullDNSRegistrationEnabled
+//GatewayCostMetric
+//IGMPLevel
+//Index
+//InterfaceIndex
+//IPAddress
+//IPConnectionMetric
+//IPEnabled
+//IPFilterSecurityEnabled
+//IPPortSecurityEnabled
+//IPSecPermitIPProtocols
+//IPSecPermitTCPPorts
+//IPSecPermitUDPPorts
+//IPSubnet
+//IPUseZeroBroadcast
+//IPXAddress
+//IPXEnabled
+//IPXFrameType
+//IPXMediaType
+//IPXNetworkNumber
+//IPXVirtualNetNumber
+//KeepAliveInterval
+//KeepAliveTime
+//MACAddress
+//MTU
+//NumForwardPackets
+//PMTUBHDetectEnabled
+//PMTUDiscoveryEnabled
+//ServiceName
+//SettingID
+//TcpipNetbiosOptions
+//TcpMaxConnectRetransmissions
+//TcpMaxDataRetransmissions
+//TcpNumConnections
+//TcpUseRFC1122UrgentPointer
+//TcpWindowSize
+//WINSEnableLMHostsLookup
+//WINSHostLookupFile
+//WINSPrimaryServer
+//WINSScopeID
+//WINSSecondaryServer
+//ArpAlwaysSourceRoute
+//ArpUseEtherSNAP
+//Caption
+//DatabasePath
+//DeadGWDetectEnabled
+//DefaultIPGateway
+//DefaultTOS
+//DefaultTTL
+//Description
+//DHCPEnabled
+//DHCPLeaseExpires
+//DHCPLeaseObtained
+//DHCPServer
+//DNSDomain
+//DNSDomainSuffixSearchOrder
+//DNSEnabledForWINSResolution
+//DNSHostName
+//DNSServerSearchOrder
+//DomainDNSRegistrationEnabled
+//ForwardBufferMemory
+//FullDNSRegistrationEnabled
+//GatewayCostMetric
+//IGMPLevel
+//Index
+//InterfaceIndex
+//IPAddress
+//IPConnectionMetric
+//IPEnabled
+//IPFilterSecurityEnabled
+//IPPortSecurityEnabled
+//IPSecPermitIPProtocols
+//IPSecPermitTCPPorts
+//IPSecPermitUDPPorts
+//IPSubnet
+//IPUseZeroBroadcast
+//IPXAddress
+//IPXEnabled
+//IPXFrameType
+//IPXMediaType
+//IPXNetworkNumber
+//IPXVirtualNetNumber
+//KeepAliveInterval
+//KeepAliveTime
+//MACAddress
+//MTU
+//NumForwardPackets
+//PMTUBHDetectEnabled
+//PMTUDiscoveryEnabled
+//ServiceName
+//SettingID
+//TcpipNetbiosOptions
+//TcpMaxConnectRetransmissions
+//TcpMaxDataRetransmissions
+//TcpNumConnections
+//TcpUseRFC1122UrgentPointer
+//TcpWindowSize
+//WINSEnableLMHostsLookup
+//WINSHostLookupFile
+//WINSPrimaryServer
+//WINSScopeID
+//WINSSecondaryServer
+//ArpAlwaysSourceRoute
+//ArpUseEtherSNAP
+//Caption
+//DatabasePath
+//DeadGWDetectEnabled
+//DefaultIPGateway
+//DefaultTOS
+//DefaultTTL
+//Description
+//DHCPEnabled
+//DHCPLeaseExpires
+//DHCPLeaseObtained
+//DHCPServer
+//DNSDomain
+//DNSDomainSuffixSearchOrder
+//DNSEnabledForWINSResolution
+//DNSHostName
+//DNSServerSearchOrder
+//DomainDNSRegistrationEnabled
+//ForwardBufferMemory
+//FullDNSRegistrationEnabled
+//GatewayCostMetric
+//IGMPLevel
+//Index
+//InterfaceIndex
+//IPAddress
+//IPConnectionMetric
+//IPEnabled
+//IPFilterSecurityEnabled
+//IPPortSecurityEnabled
+//IPSecPermitIPProtocols
+//IPSecPermitTCPPorts
+//IPSecPermitUDPPorts
+//IPSubnet
+//IPUseZeroBroadcast
+//IPXAddress
+//IPXEnabled
+//IPXFrameType
+//IPXMediaType
+//IPXNetworkNumber
+//IPXVirtualNetNumber
+//KeepAliveInterval
+//KeepAliveTime
+//MACAddress
+//MTU
+//NumForwardPackets
+//PMTUBHDetectEnabled
+//PMTUDiscoveryEnabled
+//ServiceName
+//SettingID
+//TcpipNetbiosOptions
+//TcpMaxConnectRetransmissions
+//TcpMaxDataRetransmissions
+//TcpNumConnections
+//TcpUseRFC1122UrgentPointer
+//TcpWindowSize
+//WINSEnableLMHostsLookup
+//WINSHostLookupFile
+//WINSPrimaryServer
+//WINSScopeID
+//WINSSecondaryServer

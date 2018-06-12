@@ -1,0 +1,7 @@
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Console\bin\Release\NetUtility.Con.exe
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Console\bin\Release\NetUtility.Con.pdb
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Console\bin\Release\NetUtility.dll
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Console\bin\Release\NetUtility.pdb
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Console\obj\Release\NetUtility.Console.csprojResolveAssemblyReference.cache
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Console\obj\Release\NetUtility.Con.exe
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Console\obj\Release\NetUtility.Con.pdb

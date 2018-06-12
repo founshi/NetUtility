@@ -3,18 +3,34 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using NetUtility.WinForm;
+using NetUtility.DeviceUnility;
 namespace NetUtility.Con
 {
     class Program
     {
         static void Main(string[] args)
         {
-            GetUnistall.ShowAll();
+            
+            try
+            {
+                
+                //Console.WriteLine(DiskDrive.GetDiskID());
+                //Console.WriteLine(NetDevice.GetMacAddress());
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
+            Console.WriteLine("Press any key to continu....");
             Console.ReadKey();
         }
     }
 
+
+    
     /// <summary>
     /// 注册表查找安装程序
     /// </summary>

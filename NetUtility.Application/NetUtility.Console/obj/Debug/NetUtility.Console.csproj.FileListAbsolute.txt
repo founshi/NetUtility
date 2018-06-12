@@ -2,3 +2,6 @@ D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Console\bin\Debug\
 D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Console\bin\Debug\NetUtility.Con.pdb
 D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Console\obj\Debug\NetUtility.Con.exe
 D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Console\obj\Debug\NetUtility.Con.pdb
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Console\obj\Debug\NetUtility.Console.csprojResolveAssemblyReference.cache
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Console\bin\Debug\NetUtility.dll
+D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Console\bin\Debug\NetUtility.pdb
