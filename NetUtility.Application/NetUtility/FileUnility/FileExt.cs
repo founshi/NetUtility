@@ -42,7 +42,27 @@ namespace NetUtility.FileUnility
         #endregion
 
 
+        /// <summary>
+        /// 大文件的拷贝
+        /// </summary>
+        /// <param name="srcFilePath">源文件</param>
+        /// <param name="dstFilePath">目标文件</param>
+        public static void CopyBigFile(string srcFilePath, string dstFilePath)
+        {
+            System.IO.FileStream streamReader = new System.IO.FileStream(srcFilePath, System.IO.FileMode.Open);
+            System.IO.FileStream streamWrite = new System.IO.FileStream(dstFilePath, System.IO.FileMode.Create);
+            int readLength = 0;
+            byte[] buffer = new byte[1024 * 1024 * 10];//1024byte=1KB  10MB
+            do
+            {
+                readLength = streamReader.Read(buffer, 0, buffer.Length);
+                streamWrite.Write(buffer, 0, readLength);
 
+            } while (readLength >= buffer.Length);
+            streamWrite.Dispose();
+            streamReader.Dispose();
+
+        }
 
 
 

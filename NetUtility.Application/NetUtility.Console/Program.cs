@@ -12,19 +12,26 @@ namespace NetUtility.Con
         static void Main(string[] args)
         {
             
-            try
-            {
+            //try
+            //{
+                for (int i = 0; i < 500; i++)
+                {
+                    Console.WriteLine(VerificationCode.VCodeString(5));
+                    Console.WriteLine(VerificationCode.VCodeNumber(5));
+                    Console.WriteLine(VerificationCode.VCodeStringNumber(5));
+                }
                 
+
                 //Console.WriteLine(DiskDrive.GetDiskID());
                 //Console.WriteLine(NetDevice.GetMacAddress());
 
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
             
-            Console.WriteLine("Press any key to continu....");
+            Console.WriteLine("Press any key to contiun....");
             Console.ReadKey();
         }
     }

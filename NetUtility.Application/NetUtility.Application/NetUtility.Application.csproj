@@ -60,6 +60,12 @@
     <Compile Include="Frm_Image.Designer.cs">
       <DependentUpon>Frm_Image.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Mouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Mouse.Designer.cs">
+      <DependentUpon>Frm_Mouse.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRM_NoFromBody.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Frm_Image.resx">
       <DependentUpon>Frm_Image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Mouse.resx">
+      <DependentUpon>Frm_Mouse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_NoFromBody.resx">
       <DependentUpon>FRM_NoFromBody.cs</DependentUpon>

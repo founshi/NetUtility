@@ -159,10 +159,39 @@ namespace NetUtility
         public static bool IsIP(string ip)
         {
             return Regex.IsMatch(ip, @"^((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)$");
-
         }
 
+        /// <summary>
+        /// 验证字符串是否TXT文件名(全名)
+        /// </summary>
+        /// <param name="input">要验证的字符串</param>
+        /// <returns></returns>
+        public static bool IsTxtFileName(string input)
+        {
+            string regexString = @"^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w ]*))+\.(txt|TXT)$";
+            return Regex.IsMatch(input, regexString);            
+        }
+        /// <summary>
+        /// 验证字符串是否浮点数字
+        /// </summary>
+        /// <param name="v">要验证的字符串</param>
+        /// <returns></returns>
+        public static bool IsDouble(string input)
+        {
+            string regexString = @"^(-?\\d+)(\\.\\d+)?$";
 
+            return Regex.IsMatch(input, regexString);
+        }
+        /// <summary>
+        /// 验证字符串是否整数
+        /// </summary>
+        /// <param name="input">要验证的字符串</param>
+        /// <returns></returns>
+        public static bool IsInt32(string input)
+        {
+            string regexString = @"^-?\\d+$";
 
+            return Regex.IsMatch(input, regexString);
+        }
     }
 }
