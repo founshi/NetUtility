@@ -35,7 +35,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(920, 501);
+            this.button1.Location = new System.Drawing.Point(952, 386);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(169, 59);
             this.button1.TabIndex = 0;
@@ -55,6 +55,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1133, 689);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);

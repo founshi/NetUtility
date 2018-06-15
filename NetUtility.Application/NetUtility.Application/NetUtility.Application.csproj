@@ -54,6 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataGridViewAddButton.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataGridViewAddButton.Designer.cs">
+      <DependentUpon>DataGridViewAddButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Image.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,8 +84,17 @@
     <Compile Include="Frm_Wave.Designer.cs">
       <DependentUpon>Frm_Wave.cs</DependentUpon>
     </Compile>
+    <Compile Include="MousePenetration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MousePenetration.Designer.cs">
+      <DependentUpon>MousePenetration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DataGridViewAddButton.resx">
+      <DependentUpon>DataGridViewAddButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Image.resx">
       <DependentUpon>Frm_Image.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Wave.resx">
       <DependentUpon>Frm_Wave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MousePenetration.resx">
+      <DependentUpon>MousePenetration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -121,6 +139,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1.jpg" />
+    <None Include="Resources\img8.jpg" />
+    <None Include="Resources\img4.jpg" />
+    <None Include="Resources\img12.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

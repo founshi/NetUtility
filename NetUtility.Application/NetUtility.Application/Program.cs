@@ -15,7 +15,7 @@ namespace NetUtility.App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Mouse());
+            Application.Run(new DataGridViewAddButton());
         }
     }
 }

@@ -137,5 +137,56 @@ namespace NetUtility
             return defaultVal;
         }
         #endregion
+        #region 格式化字节数字符串
+        /// <summary>
+        /// 格式化字节数字符串
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
+        public static string FormatBytesStr(int bytes)
+        {
+            if (bytes > 1073741824)
+            {
+                return ((double)(bytes / 1073741824)).ToString("0") + "G";
+            }
+            if (bytes > 1048576)
+            {
+                return ((double)(bytes / 1048576)).ToString("0") + "M";
+            }
+            if (bytes > 1024)
+            {
+                return ((double)(bytes / 1024)).ToString("0") + "K";
+            }
+            return bytes.ToString() + "Bytes";
+        }
+        #endregion
+        #region 将全角数字转换为半角数字
+        /// <summary>
+        /// 将全角数字转换为数字
+        /// </summary>
+        /// <param name="SBCCase"></param>
+        /// <returns></returns>
+        public static string SBCCaseToNumberic(string SBCCase)
+        {
+            char[] c = SBCCase.ToCharArray();
+            for (int i = 0; i < c.Length; i++)
+            {
+                byte[] b = System.Text.Encoding.Unicode.GetBytes(c, i, 1);
+                if (b.Length == 2)
+                {
+                    if (b[1] == 255)
+                    {
+                        b[0] = (byte)(b[0] + 32);
+                        b[1] = 0;
+                        c[i] = System.Text.Encoding.Unicode.GetChars(b)[0];
+                    }
+                }
+            }
+            return new string(c);
+        }
+        #endregion
+
+
+
     }
 }

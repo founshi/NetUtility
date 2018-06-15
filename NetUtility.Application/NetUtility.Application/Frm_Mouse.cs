@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -16,6 +17,7 @@ namespace NetUtility.App
         Point _EndPoint = new Point();
         bool CanDraw = false;
         bool OneDraw = false;
+
         public Frm_Mouse()
         {
             InitializeComponent();
@@ -23,7 +25,7 @@ namespace NetUtility.App
 
         private void Frm_Mouse_Load(object sender, EventArgs e)
         {
-
+            
         }
 
 

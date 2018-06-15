@@ -5,31 +5,26 @@ using System.Linq;
 using System.Text;
 using NetUtility.WinForm;
 using NetUtility.DeviceUnility;
+using NetUtility.DirectoryUnility;
+using NetUtility.WebUnility;
+using System.Text.RegularExpressions;
 namespace NetUtility.Con
 {
     class Program
     {
         static void Main(string[] args)
         {
-            
-            //try
-            //{
-                for (int i = 0; i < 500; i++)
-                {
-                    Console.WriteLine(VerificationCode.VCodeString(5));
-                    Console.WriteLine(VerificationCode.VCodeNumber(5));
-                    Console.WriteLine(VerificationCode.VCodeStringNumber(5));
-                }
-                
 
-                //Console.WriteLine(DiskDrive.GetDiskID());
-                //Console.WriteLine(NetDevice.GetMacAddress());
+            try
+            {
+                //ASRSVersionCheck _ASRSVersionCheck = new ASRSVersionCheck(@"http://172.20.81.241:8055/publish.htm");
+                //Console.WriteLine(_ASRSVersionCheck.GetCurrentVersion());
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //}
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             
             Console.WriteLine("Press any key to contiun....");
             Console.ReadKey();

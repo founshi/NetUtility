@@ -44,9 +44,11 @@
   <ItemGroup>
     <Compile Include="ByteUnility.cs" />
     <Compile Include="CharUnitily.cs" />
+    <Compile Include="DateTimeExt.cs" />
     <Compile Include="DeviceUnility\CPUDevice.cs" />
     <Compile Include="DeviceUnility\DiskDrive.cs" />
     <Compile Include="DeviceUnility\PCDevice.cs" />
+    <Compile Include="DirectoryUnility\DirectoryExt.cs" />
     <Compile Include="FileUnility\FileExt.cs" />
     <Compile Include="FileUnility\Log.cs" />
     <Compile Include="Mailer.cs" />
@@ -58,15 +60,13 @@
     <Compile Include="SecurityUnility\DESUnility.cs" />
     <Compile Include="StringExt.cs" />
     <Compile Include="VerificationCode.cs" />
+    <Compile Include="WebUnility\HTMLExt.cs" />
     <Compile Include="WinForm\FileTypeRegister.cs" />
     <Compile Include="WinForm\NoteByText.cs" />
     <Compile Include="WinForm\RegistryHelper.cs" />
     <Compile Include="WinForm\TextBoxExt.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DirectoryUnility\" />
-    <Folder Include="WebUnility\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

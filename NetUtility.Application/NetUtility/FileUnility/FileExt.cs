@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-
+using System.Runtime.InteropServices;
 namespace NetUtility.FileUnility
 {
     public class FileExt
@@ -37,11 +37,10 @@ namespace NetUtility.FileUnility
             {
                 throw ex;
             }
-            
+
         }
         #endregion
-
-
+        #region 大文件的拷贝
         /// <summary>
         /// 大文件的拷贝
         /// </summary>
@@ -63,8 +62,32 @@ namespace NetUtility.FileUnility
             streamReader.Dispose();
 
         }
+        #endregion
+        #region 检测文件被占用
+        [DllImport("kernel32.dll")]
+        private static extern IntPtr _lopen(string lpPathName, int iReadWrite);
+        [DllImport("kernel32.dll")]
+        private static extern bool CloseHandle(IntPtr hObject);
+        private const int OF_READWRITE = 2;
+        private const int OF_SHARE_DENY_NONE = 0x40;
+        private readonly IntPtr HFILE_ERROR = new IntPtr(-1);
 
+        /// <summary>
+        /// 检测文件被占用
+        /// </summary>
+        /// <param name="FileNames">要检测的文件路径</param>
+        /// <returns>返回 false 表示被占用</returns>
+        public bool CheckFiles(string FileNames)
+        {
+            if (!File.Exists(FileNames)) return true; //文件不存在
+            
+            IntPtr vHandle = _lopen(FileNames, OF_READWRITE | OF_SHARE_DENY_NONE);
+            if (vHandle == HFILE_ERROR) return false;//文件被占用
+            CloseHandle(vHandle);//文件没被占用
+            return true;
+        }
+        #endregion
 
-
+        
     }
 }
