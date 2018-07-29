@@ -50,6 +50,7 @@
     <Compile Include="DeviceUnility\PCDevice.cs" />
     <Compile Include="DirectoryUnility\DirectoryExt.cs" />
     <Compile Include="FileUnility\FileExt.cs" />
+    <Compile Include="FileUnility\INIUnility.cs" />
     <Compile Include="FileUnility\Log.cs" />
     <Compile Include="Mailer.cs" />
     <Compile Include="DeviceUnility\NetDevice.cs" />

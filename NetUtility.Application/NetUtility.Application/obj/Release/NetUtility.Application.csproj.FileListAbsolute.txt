@@ -13,3 +13,5 @@ D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Application\obj\Re
 D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Application\obj\Release\NetUtility.App.Frm_Mouse.resources
 D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Application\obj\Release\NetUtility.App.MousePenetration.resources
 D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility.Application\obj\Release\NetUtility.App.DataGridViewAddButton.resources
+D:\MyDemoAlwayUse\NetUtility\NetUtility.Application\NetUtility.Application\obj\Release\NetUtility.App.exe
+D:\MyDemoAlwayUse\NetUtility\NetUtility.Application\NetUtility.Application\obj\Release\NetUtility.App.pdb
