@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 
@@ -80,7 +81,24 @@ namespace NetUtility.NetUnility
 
             return sb.ToString();
         }
- 
+
+        public string GetMacAddress()
+        {
+            string strMac = "";
+            NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
+            foreach (NetworkInterface ni in interfaces)
+            {
+                if (ni.OperationalStatus != OperationalStatus.Up) continue;
+                string macAddress = ni.GetPhysicalAddress().ToString();
+                if (string.IsNullOrEmpty(macAddress)) continue;
+                for (int i = 1; i < 6; i++)
+                {
+                    macAddress = macAddress.Insert(3 * i - 1, "-");
+                }
+                strMac += macAddress + "|";
+            }
+            return strMac.Split('|')[0];
+        }
 
     }
 }

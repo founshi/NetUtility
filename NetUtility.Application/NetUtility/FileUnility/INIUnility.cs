@@ -35,6 +35,13 @@ namespace NetUtility.FileUnility
         public static extern long WritePrivateProfileSection(string strAppName, string strkeyandvalue, string strFileName);
         #endregion
 
+        public INIUnility(string iniFilePath)
+        {
+            if (string.IsNullOrEmpty(iniFilePath)) throw new Exception("INI文件路径不能为空");
+
+            filePath = iniFilePath;
+        }
+
         #region 供UI调用的方法 
 
         /// <summary>
