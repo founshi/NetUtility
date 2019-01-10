@@ -5,6 +5,9 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
+using System.Text.RegularExpressions;
+
 namespace NetUtility.FileUnility
 {
     public class FileExt
@@ -87,7 +90,110 @@ namespace NetUtility.FileUnility
             return true;
         }
         #endregion
+        #region 强力粉碎文件，文件如果被打开，很难粉碎
+        /// <summary>
+        /// 强力粉碎文件，文件如果被打开，很难粉碎
+        /// </summary>
+        /// <param name="filename">文件全路径</param>
+        /// <param name="deleteCount">删除次数</param>
+        /// <param name="randomData">随机数据填充文件，默认true</param>
+        /// <param name="blanks">空白填充文件，默认false</param>
+        /// <returns>true：粉碎成功，false：粉碎失败</returns>
+        public static bool KillFile(string filename, int deleteCount, bool randomData = true, bool blanks = false)
+        {
+            const int bufferLength = 1024000;
+            bool ret = true;
+            try
+            {
+                using (FileStream stream = new FileStream(filename, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite))
+                {
+                    FileInfo f = new FileInfo(filename);
+                    long count = f.Length;
+                    long offset = 0;
+                    var rowDataBuffer = new byte[bufferLength];
+                    while (count >= 0)
+                    {
+                        int iNumOfDataRead = stream.Read(rowDataBuffer, 0, bufferLength);
+                        if (iNumOfDataRead == 0)
+                        {
+                            break;
+                        }
+                        if (randomData)
+                        {
+                            Random randombyte = new Random();
+                            randombyte.NextBytes(rowDataBuffer);
+                        }
+                        else if (blanks)
+                        {
+                            for (int i = 0; i < iNumOfDataRead; i++)
+                                rowDataBuffer[i] = 0;
+                        }
+                        else
+                        {
+                            for (int i = 0; i < iNumOfDataRead; i++)
+                                rowDataBuffer[i] = Convert.ToByte(Convert.ToChar(deleteCount));
+                        }
+                        // 写新内容到文件。
+                        for (int i = 0; i < deleteCount; i++)
+                        {
+                            stream.Seek(offset, SeekOrigin.Begin);
+                            stream.Write(rowDataBuffer, 0, iNumOfDataRead);
+                        }
+                        offset += iNumOfDataRead;
+                        count -= iNumOfDataRead;
+                    }
+                }
+                //每一个文件名字符代替随机数从0到9。
+                string newName = "";
+                do
+                {
+                    Random random = new Random();
+                    string cleanName = Path.GetFileName(filename);
+                    string dirName = Path.GetDirectoryName(filename);
+                    int iMoreRandomLetters = random.Next(9);
+                    // 为了更安全，不要只使用原文件名的大小，添加一些随机字母。
+                    for (int i = 0; i < cleanName.Length + iMoreRandomLetters; i++)
+                    {
+                        newName += random.Next(9).ToString();
+                    }
+                    newName = dirName + "\\" + newName;
+                } while (File.Exists(newName));
+                // 重命名文件的新的随机的名字。
+                File.Move(filename, newName);
+                File.Delete(newName);
+            }
+            catch
+            {
+                //可能其他原因删除失败了，使用我们自己的方法强制删除
+                try
+                {
+                    string fileName = filename;//要检查被那个进程占用的文件
+                    Process tool = new Process { StartInfo = { FileName = "handle.exe", Arguments = fileName + " /accepteula", UseShellExecute = false, RedirectStandardOutput = true } };
+                    tool.Start();
+                    tool.WaitForExit();
+                    string outputTool = tool.StandardOutput.ReadToEnd();
+                    string matchPattern = @"(?<=\s+pid:\s+)\b(\d+)\b(?=\s+)";
+                    foreach (Match match in Regex.Matches(outputTool, matchPattern))
+                    {
 
-        
+                        //结束掉所有正在使用这个文件的程序
+                        Process.GetProcessById(int.Parse(match.Value)).Kill();
+                    }
+                    File.Delete(fileName);
+                }
+                catch
+                {
+                    ret = false;
+                }
+            }
+            return ret;
+        }
+        #endregion
+
+
+
+
+
+
     }
 }

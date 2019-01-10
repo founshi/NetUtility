@@ -44,14 +44,18 @@
   <ItemGroup>
     <Compile Include="ByteUnility.cs" />
     <Compile Include="CharUnitily.cs" />
+    <Compile Include="Cookie\CookieHelper.cs" />
     <Compile Include="DateTimeExt.cs" />
     <Compile Include="DeviceUnility\CPUDevice.cs" />
     <Compile Include="DeviceUnility\DiskDrive.cs" />
     <Compile Include="DeviceUnility\PCDevice.cs" />
     <Compile Include="DirectoryUnility\DirectoryExt.cs" />
+    <Compile Include="DirectoryUnility\ShareFoldHelper.cs" />
     <Compile Include="FileUnility\FileExt.cs" />
     <Compile Include="FileUnility\INIUnility.cs" />
     <Compile Include="FileUnility\Log.cs" />
+    <Compile Include="FTP\FileProgNum.cs" />
+    <Compile Include="FTP\FTPHelper.cs" />
     <Compile Include="Mailer.cs" />
     <Compile Include="DeviceUnility\NetDevice.cs" />
     <Compile Include="NetUnility\NetUnility.cs" />

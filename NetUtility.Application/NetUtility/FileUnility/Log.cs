@@ -9,6 +9,17 @@ namespace NetUtility.FileUnility
     public class Log
     {
         private static object _lock = new object();
+        private static string LogPath = string.Empty;
+
+        private Log()
+        { }
+        static Log()
+        {
+            LogPath = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+            LogPath = Path.Combine(LogPath, "Log");
+        }
+
+
         /// <summary>
         /// 将字符串追加到指定的文件
         /// </summary>
@@ -66,6 +77,80 @@ namespace NetUtility.FileUnility
         {
             return File.Exists(fileName);
         }
+
+        public static void SetLog(string context, System.Windows.Forms.ListBox mlistBox)
+        {
+            CreateDirectory(LogPath);
+            context = "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]" + context;
+            string fileName = Path.Combine(LogPath, DateTime.Now.ToString("yyyyMMdd") + ".log");
+            Log.CreateEmptyFile(fileName);
+            StreamWriter sw = null;
+            try
+            {
+                lock (_lock)
+                {
+                    sw = File.AppendText(fileName);
+                    sw.WriteLine(context);
+                }
+            }
+            catch
+            { }
+            finally
+            {
+                if (sw != null)
+                {
+                    sw.Flush();
+                    sw.Close();
+                    sw.Dispose();
+                }
+            }
+            if (mlistBox != null)
+            {
+                mlistBox.Items.Add(context);
+                if (mlistBox.Items.Count >= 100)
+                {
+                    mlistBox.Items.RemoveAt(0);
+                }
+            }
+
+        }
+
+        public static void SetLog(string context)
+        {
+            CreateDirectory(LogPath);
+            context = "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]" + context;
+            string fileName = Path.Combine(LogPath, DateTime.Now.ToString("yyyyMMdd") + ".log");
+            Log.CreateEmptyFile(fileName);
+            StreamWriter sw = null;
+            try
+            {
+                lock (_lock)
+                {
+                    sw = File.AppendText(fileName);
+                    sw.WriteLine(context);
+                }
+            }
+            catch
+            { }
+            finally
+            {
+                if (sw != null)
+                {
+                    sw.Flush();
+                    sw.Close();
+                    sw.Dispose();
+                }
+            }           
+
+        }
+
+        private static void CreateDirectory(string targetDir)
+        {
+            DirectoryInfo dir = new DirectoryInfo(targetDir);
+            if (!dir.Exists)
+                dir.Create();
+        }
+
 
     }
 }

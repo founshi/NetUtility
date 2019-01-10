@@ -3,3 +3,8 @@ D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility\bin\Release\NetUti
 D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility\obj\Release\NetUtility.dll
 D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility\obj\Release\NetUtility.pdb
 D:\ErricData\Git\NetUtility\NetUtility.Application\NetUtility\obj\Release\NetUtility.csprojResolveAssemblyReference.cache
+D:\MyDemoAlwayUse\NetUtility\NetUtility.Application\NetUtility\bin\Release\NetUtility.dll
+D:\MyDemoAlwayUse\NetUtility\NetUtility.Application\NetUtility\bin\Release\NetUtility.pdb
+D:\MyDemoAlwayUse\NetUtility\NetUtility.Application\NetUtility\obj\Release\NetUtility.csprojResolveAssemblyReference.cache
+D:\MyDemoAlwayUse\NetUtility\NetUtility.Application\NetUtility\obj\Release\NetUtility.dll
+D:\MyDemoAlwayUse\NetUtility\NetUtility.Application\NetUtility\obj\Release\NetUtility.pdb
