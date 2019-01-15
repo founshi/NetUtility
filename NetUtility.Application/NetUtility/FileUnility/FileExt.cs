@@ -248,18 +248,40 @@ namespace NetUtility.FileUnility
 
         }
 
+        public static string GetMD5HashFromFile(string fileName)
+        {
+            try
+            {
+                FileStream file = new FileStream(fileName, System.IO.FileMode.Open);
+                MD5 md5 = new MD5CryptoServiceProvider();
+                byte[] retVal = md5.ComputeHash(file);
+                file.Close();
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < retVal.Length; i++)
+                {
+                    sb.Append(retVal[i].ToString("x2"));
+                }
+                return sb.ToString();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("GetMD5HashFromFile() fail,error:" + ex.Message);
+            }
+        }
 
 
         /***************************************************************
-         * * 获取文件名称(包含文件吗)
+         * * 获取文件名称(包含文件名)
          * * string mfileName = Path.GetFileName(filefullpath);
          * * 获取程序当前运行的路径
          * * AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
          * * 获取文件后缀名
          * * Path.GetExtension(dfilefullpath);
-         * *
-         * *
-         * *
+         * * 获取文件名(不带后缀名)
+         * *Path.GetFileNameWithoutExtension(dfilefullpath)
+         * * 获取文件的上级文件夹名称
+         * * DirectoryInfo pathInfo = new DirectoryInfo(filefullpath);
+         * * pathInfo.Parent.Name
          * *
          * *
          * *
