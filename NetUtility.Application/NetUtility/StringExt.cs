@@ -185,6 +185,82 @@ namespace NetUtility
             return new string(c);
         }
         #endregion
+        #region 获取substr第mcount次出现的位置
+        /// <summary>
+        /// 获取substr第mcount次出现的位置
+        /// </summary>
+        /// <param name="str">原始字符串</param>
+        /// <param name="substr">查找的字符串</param>
+        /// <param name="mcount">次数</param>
+        /// <returns></returns>
+        public static int GetSubStrCountInStr(String str, String substr, int mcount = 2)
+        {
+            int foundPos = -1;
+            int count = 0;
+            List<int> foundItems = new List<int>();
+            int StartPos = 0;
+            do
+            {
+                foundPos = str.IndexOf(substr, StartPos);
+                if (foundPos > -1)
+                {
+                    StartPos = foundPos + 1;
+                    count++;
+                    foundItems.Add(foundPos);
+                }
+            } while (foundPos > -1 && StartPos < str.Length);
+
+            if (mcount > foundItems.Count)
+            {
+                return foundItems[foundItems.Count - 1];
+            }
+            else
+            {
+                return foundItems[mcount - 1];
+            }
+            //return ((int[])foundItems.ToArray());
+        }
+        #endregion
+        #region 字符串strSrc左边使用padString填充。然后取右边count
+        /// <summary>
+        /// 字符串strSrc左边使用padString填充。然后取右边count
+        /// </summary>
+        /// <param name="strSrc">原始字符串</param>
+        /// <param name="count">总位数</param>
+        /// <param name="padString">左边填充的字符串</param>
+        /// <returns></returns>
+        public static string ToPadLeft(this string strSrc, int count = 8, string padString = "00000000")
+        {
+            string mstring = string.Format("{0}{1}", padString, strSrc);
+            return mstring.Substring(mstring.Length - 8);
+        }
+        #endregion
+
+
+        public static bool IsEmpty(this string str)
+        {
+            if (str == null) return true;
+            return string.IsNullOrEmpty(str);
+        }
+        public static int Toint(this string strSrc, int defVal = 0)
+        {
+            strSrc = strSrc.Replace(",", "");
+            int.TryParse(strSrc, out defVal);
+            return defVal;
+        }
+        public static double ToDouble(this string strSrc, double defVal = 0)
+        {
+            double.TryParse(strSrc, out defVal);
+            return defVal;
+        }
+
+        public static string TrimNull(this string strSrc)
+        {
+            if (strSrc == null) return "0";
+            else if (string.IsNullOrEmpty(strSrc)) return "0";
+            else return strSrc.Trim();
+        }
+
 
 
 

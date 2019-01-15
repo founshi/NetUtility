@@ -191,8 +191,87 @@ namespace NetUtility.FileUnility
         #endregion
 
 
+        /// <summary>
+        /// 获取所有的图片文件，根据需要修改代码
+        /// </summary>
+        /// <param name="_dircPath"></param>
+        /// <param name="fileList"></param>
+        /// <returns></returns>
+        public static List<string> GetAllFiles(string _dircPath, List<string> fileList = null)
+        {
+            if (fileList == null) fileList = new List<string>();
+            string[] filenames = Directory.GetFileSystemEntries(_dircPath);
+            foreach (var item in filenames)
+            {
+                if (Directory.Exists(item))
+                {
+                    GetAllFiles(item, fileList);
+                }
+                else
+                {
+                    string mextenName = Path.GetExtension(item);
+                    if (mextenName == "") continue;
+                    if ((mextenName.Trim().ToUpper() == ".JPEG") || (mextenName.Trim().ToUpper() == ".BMP") || (mextenName.Trim().ToUpper() == ".JPG") || (mextenName.Trim().ToUpper() == ".PNG") || (mextenName.Trim().ToUpper() == ".GIF"))
+                    {
+                        fileList.Add(item);
+                    }
+                }
+            }
+            return fileList;
+        }
+
+        /// <summary>
+        /// 移动文件
+        /// </summary>
+        /// <param name="srcFile"></param>
+        /// <param name="dstFile"></param>
+        /// <param name="delDst"></param>
+        public static void RemoveFile(string srcFile, string dstFile, bool delDst)
+        {
+            try
+            {
+                if (!File.Exists(srcFile)) return;
+                if (File.Exists(dstFile))
+                {
+                    if (delDst)
+                    {
+                        File.Delete(dstFile);
+                    }
+                }
+                File.Move(srcFile, dstFile);
+            }
+            catch (Exception)
+            {
+
+                 throw;
+            }
+
+        }
 
 
+
+        /***************************************************************
+         * * 获取文件名称(包含文件吗)
+         * * string mfileName = Path.GetFileName(filefullpath);
+         * * 获取程序当前运行的路径
+         * * AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+         * * 获取文件后缀名
+         * * Path.GetExtension(dfilefullpath);
+         * *
+         * *
+         * *
+         * *
+         * *
+         * *
+         * *
+         * *
+         * *
+         * *
+         * *
+         * *
+         * *
+         * *
+         * */
 
 
     }

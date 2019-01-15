@@ -51,6 +51,7 @@
     <Compile Include="DeviceUnility\PCDevice.cs" />
     <Compile Include="DirectoryUnility\DirectoryExt.cs" />
     <Compile Include="DirectoryUnility\ShareFoldHelper.cs" />
+    <Compile Include="FileDialogHelper.cs" />
     <Compile Include="FileUnility\FileExt.cs" />
     <Compile Include="FileUnility\INIUnility.cs" />
     <Compile Include="FileUnility\Log.cs" />
