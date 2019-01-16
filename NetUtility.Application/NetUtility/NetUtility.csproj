@@ -45,6 +45,7 @@
     <Compile Include="ByteUnility.cs" />
     <Compile Include="CharUnitily.cs" />
     <Compile Include="Cookie\CookieHelper.cs" />
+    <Compile Include="DataTableExt.cs" />
     <Compile Include="DateTimeExt.cs" />
     <Compile Include="DeviceUnility\CPUDevice.cs" />
     <Compile Include="DeviceUnility\DiskDrive.cs" />
@@ -55,12 +56,14 @@
     <Compile Include="FileUnility\FileExt.cs" />
     <Compile Include="FileUnility\INIUnility.cs" />
     <Compile Include="FileUnility\Log.cs" />
+    <Compile Include="FileUnility\LogPlus.cs" />
     <Compile Include="FTP\FileProgNum.cs" />
     <Compile Include="FTP\FTPHelper.cs" />
     <Compile Include="Mailer.cs" />
     <Compile Include="DeviceUnility\NetDevice.cs" />
     <Compile Include="NetUnility\NetUnility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuartzExpressString.cs" />
     <Compile Include="RegexValidate.cs" />
     <Compile Include="SecurityUnility\AESUnility.cs" />
     <Compile Include="SecurityUnility\DESUnility.cs" />

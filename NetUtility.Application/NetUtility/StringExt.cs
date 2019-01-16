@@ -262,6 +262,32 @@ namespace NetUtility
         }
 
 
+        public static bool IsDecimal(this string srcString)
+        {
+            decimal temp = 0;
+            return decimal.TryParse(srcString, out temp);
+        }
+        public static decimal ToDecimal(this string srcString)
+        {
+            decimal temp = 0;
+            decimal.TryParse(srcString, out temp);
+            return temp;
+        }
+        public static DateTime ToDateTime(this string src)
+        {
+            src = src.Replace("-", "/").Replace(@"\", "/");
+            DateTime dst = DateTime.Now;
+            DateTime.TryParse(src, out dst);
+            return dst;
+        }
+
+        public static bool IsDataTime(this string src)
+        {
+            src = src.Replace("-", "/").Replace(@"\", "/");
+            DateTime dst = DateTime.Now;
+            return DateTime.TryParse(src, out dst);
+
+        }
 
 
     }
