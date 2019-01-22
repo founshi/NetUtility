@@ -42,17 +42,30 @@ namespace NetUtility
         /// </summary>
         /// <param name="dr"></param>
         /// <returns></returns>
-        public string CreateFieldString(DataRow dr)
+        public static string CreateFieldString(DataRow dr)
         {
+            //标题
             StringBuilder _rowString = new StringBuilder();
-
+            _rowString.Append("(");
             for (int i = 0; i < dr.Table.Columns.Count; i++)
             {
                 _rowString.Append(dr.Table.Columns[i].ToString());
                 _rowString.Append(",");
             }
+            _rowString.Remove(_rowString.Length - 1, 1);
+            _rowString.Append(") values (");
+            //某一行的所有内容
+            for (int i = 0; i < dr.Table.Columns.Count; i++)
+            {
+                _rowString.Append(dr[i].ToString());
+                _rowString.Append(",");
+            }
+            _rowString.Remove(_rowString.Length - 1, 1);
+            _rowString.Append(")");
+
             return _rowString.ToString();
         }
+
         #endregion
 
 
